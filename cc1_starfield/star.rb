@@ -28,7 +28,7 @@ class Star
   end
 
   def update
-    @z_factor -= 10
+    @z_factor -= 15
 
     if (@z_factor < 1)
       @z_factor = @@window.width

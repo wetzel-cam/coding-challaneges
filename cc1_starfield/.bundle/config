@@ -1,2 +1,3 @@
 ---
 BUNDLE_CACHE_ALL: "false"
+BUNDLE_LOCAL__RUBY2D: "/home/cameron/Projects/ruby2d"
