@@ -1,3 +1,5 @@
-# Specify filepatterns you want git to ignore.
+# Ignore all sublime project files
+*.sublime*
 
-*.sublime-workspace
+# Ignore directory contents
+build/*

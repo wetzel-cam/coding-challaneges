@@ -74,56 +74,6 @@ q = Line.new(
   z: 1
 )
 
-<<<<<<< HEAD
-# def slope(line)
-#   # if line.m.empty?
-#   #   ((line.y2 - line.y1) / (line.x2 - line.x1))
-#   # else
-#   #   line.m
-#   # end
-#   m = ((line.y2.to_f - line.y1) / (line.x2 - line.x1))
-#   [m, get_zero_value(line, m)]
-# end
-
-# def get_zero_value(line, m)
-#   zero_value = line.y1 - (m * line.x1)
-# end
-
-# a_func = slope(a)
-
-# a_tan = Line.new(
-#   x1: a.x1, y1: a_func[0] * a.x1 + a_func[1],
-#   x2: a.x2, y2: a_func[0] * a.x2 + a_func[1],
-#   width: 0.5,
-#   color: 'blue',
-#   z: 3
-# )
-
-# b_func = slope(b)
-
-# b_tan = Line.new(
-#   x1: b.x1, y1: b_func[0] * b.x1 + b_func[1],
-#   x2: b.x2, y2: b_func[0] * b.x2 + b_func[1],
-#   width: 0.5,
-#   color: 'blue',
-#   z: 3
-# )
-
-
-
-# a_d = distance(quad.x1,quad.y1,quad.x2,quad.y2)
-# b_d = distance(quad.x2,quad.y2,quad.x3,quad.y3)
-# c_d = distance(quad.x3,quad.y3,quad.x4,quad.y4)
-# d_d = distance(quad.x4,quad.y4,quad.x1,quad.y1)
-# p_d = p.length
-# q_d = q.length
-
-# m_d = 0.5 * (Math.sqrt((-1 * a_d**2) + b_d**2 - c_d**2 + d_d**2 + p_d**2 + q_d**2))
-# n_d = 0.5 * (Math.sqrt(a_d**2 - b_d**2 + c_d**2 - d_d**2 + p_d**2 + q_d**2))
-
-puts a.coords
-=======
-
 def slope(line)
   # if line.m.empty?
   #   ((line.y2 - line.y1) / (line.x2 - line.x1))
@@ -143,7 +93,6 @@ a_func = Line.new(
   z: 3
 )
 
-
 a_d = distance(quad.x1,quad.y1,quad.x2,quad.y2)
 b_d = distance(quad.x2,quad.y2,quad.x3,quad.y3)
 c_d = distance(quad.x3,quad.y3,quad.x4,quad.y4)
@@ -156,7 +105,3 @@ n_d = 0.5 * (Math.sqrt(a_d**2 - b_d**2 + c_d**2 - d_d**2 + p_d**2 + q_d**2))
 
 puts m_d
 puts n_d
-
->>>>>>> 625a8a083b434867c2931746bdd40a632b20df71
-
-show
