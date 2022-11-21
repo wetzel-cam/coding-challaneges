@@ -27,7 +27,6 @@ typedef struct {
   uint32_t color;
 } Star;
 
-
 bool init()
 {
   bool success = true;
@@ -73,6 +72,8 @@ bool loadMedia()
 {
   bool success = true;
 
+  
+
   return success;
 }
 
@@ -90,6 +91,15 @@ int main()
   bool quit = false;
 
   SDL_Event e;
+  Star star1 = {
+    SCREEN_WIDTH / 2,
+    0,
+    SCREEN_HEIGHT / 2,
+    0,
+    0,
+    20.0,
+    0xff0000ff
+  };
 
   // Seeds the random number generator with the curent time
   srand(time(NULL));
@@ -124,15 +134,8 @@ int main()
         //   SCREEN_HEIGHT / 2
         // };
 
-        Star star1 = {
-          SCREEN_WIDTH / 2,
-          0,
-          SCREEN_HEIGHT / 2,
-          0,
-          0,
-          20.0,
-          0xff0000ff
-        };
+        star1.x_pos += 1;
+        star1.y_pos += 1;
 
         // SDL_SetRenderDrawColor(gRenderer, 0xFF, 0x00, 0x00, 0xFF);
         // SDL_RenderFillRect(gRenderer, &fillRect);
