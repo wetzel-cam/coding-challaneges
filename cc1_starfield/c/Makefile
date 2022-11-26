@@ -1,7 +1,8 @@
 TARGET :=	cc1_Starfield
 
-BUILD_DIR := ./build
-SRC_DIRS	:= ./src
+BUILD_DIR 		:= ./build
+SRC_DIRS			:= ./src
+LOCAL_HEADERS := ./include
 
 SRCS := $(shell find $(SRC_DIRS) -name '*.c')
 OBJS := $(SRCS:%=$(BUILD_DIR)/%.o)
@@ -10,7 +11,7 @@ LLIBS := ../../libs
 
 INCLUDE := $(LLIBS)/include
 LDFLAGS := -L$(LLIBS)/lib -lSDL2 -lSDL2_gfx
-CFLAGS	:= -I$(INCLUDE) -I$(INCLUDE)/SDL2
+CFLAGS	:= -I$(LOCAL_HEADERS) -I$(INCLUDE) -I/usr/include/SDL2
 
 export LD_LIBRARY_PATH := $(LLIBS)/lib
 

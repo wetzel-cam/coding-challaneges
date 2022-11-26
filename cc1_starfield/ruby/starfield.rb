@@ -1,6 +1,6 @@
 require 'ruby2d'
 require './star.rb'
-require './slider.rb'
+# require './slider.rb'
 
 def setup
   set title: "Starfield"
