@@ -19,6 +19,11 @@ SDL_Window* gWindow         = NULL;
 SDL_Surface* gScreenSurface = NULL;
 SDL_Renderer* gRenderer     = NULL;
 
+int numOfStars = NUMBER_OF_STARS;
+// stars = malloc(sizeof(Star*)*numOfStars);
+
+Star* stars[NUMBER_OF_STARS];
+
 bool init()
 {
   bool success = true;
@@ -64,7 +69,11 @@ bool loadMedia()
 {
   bool success = true;
 
-  
+  for (int i = 0; i < numOfStars; ++i)
+  {
+    // stars[i] = Star_Create();
+    stars[i] = Star_Create(randRange(0, SCREEN_WIDTH), randRange(0, SCREEN_HEIGHT), rand() % 5, rand() % 5);
+  }
 
   return success;
 }
@@ -88,7 +97,6 @@ int main()
   float avgFPS;
 
   SDL_Event e;
-  Star* star1 = Star_Create();
 
   // Seeds the random number generator with the curent time
   srand(time(NULL));
@@ -114,41 +122,22 @@ int main()
             quit = true;
         }
 
-        SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
+        SDL_SetRenderDrawColor(gRenderer, 0x0, 0x0, 0x0, 0x0);
         SDL_RenderClear(gRenderer);
 
-        // SDL_Rect fillRect = {
-        //   SCREEN_WIDTH / 4,
-        //   SCREEN_HEIGHT / 4,
-        //   SCREEN_WIDTH / 2,
-        //   SCREEN_HEIGHT / 2
-        // };
+        for (int i = 0; i < numOfStars; ++i)
+        {
+          // // Reverses the direction of movement if the screen limit is reached
+          // if (stars[i]->position[0] > SCREEN_WIDTH || stars[i]->position[0] < 0)
+          //   stars[i]->velocity[0] *= -1;
+          // if (stars[i]->position[1] > SCREEN_HEIGHT || stars[i]->position[1] < 0)
+          //   stars[i]->velocity[1] *= -1;
 
-        // Reverses the direction of movement if the screen limit is reached
-        if (star1->position[0] > SCREEN_WIDTH || star1->position[0] < 0)
-          x_forward = !x_forward;
-        if (star1->position[1] > SCREEN_HEIGHT || star1->position[1] < 0)
-          y_forward = !y_forward;
+          Star_Update(stars[i]);
+          Star_Render(stars[i], gRenderer);
+        }
 
-
-        // Moves the circle by unit amount in direction based on bool above
-        if (x_forward)
-          star1->velocity[0] = 1;
-        else
-          star1->velocity[0] = -1;
-
-        if (y_forward)
-          star1->velocity[1] = 1;
-        else
-          star1->velocity[1] = -1;
-
-        Star_Update(star1);
-
-        // SDL_SetRenderDrawColor(gRenderer, 0xFF, 0x00, 0x00, 0xFF);
-        // SDL_RenderFillRect(gRenderer, &fillRect);
-
-        Star_Render(star1, gRenderer);
-
+        filledCircleColor(gRenderer, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 5, 0xff00ffff);
         SDL_RenderPresent(gRenderer);
       }
     }

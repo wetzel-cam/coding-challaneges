@@ -11,13 +11,16 @@ typedef struct {
   int velocity[2]; // [0] = x velocity, [1] = y velocity
   int x_offset;
   int y_offset;
-  float z_factor;
+  int z_factor;
   Circle* circle;
 } Star;
 
-Star* Star_Create();
+// Star* Star_Create();
+Star* Star_Create(int, int, int, int);
 Circle* Star_CreateCricle(int, uint32_t);
 void Star_Update(Star*);
 void Star_Render(Star*, SDL_Renderer*);
 void Star_SetPosition(int[2]);
 void Star_SetColor(Star*);
+float map(float, float, float, float, float);
+int randRange(int, int);
